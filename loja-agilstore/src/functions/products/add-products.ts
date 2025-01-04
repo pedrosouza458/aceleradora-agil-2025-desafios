@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import { getInput } from "../utils/get-input-data";
 import { showMainMenu } from "../utils/show-main-menu";
-import { clearTerminal } from "../utils/clean-terminal";
+import { clearTerminal } from "../utils/clear-terminal";
 
 export async function addProducts() {
   clearTerminal()
@@ -10,26 +10,28 @@ export async function addProducts() {
   let productId = randomUUID();
   const productName: string = await getInput(" nome do produto: ");
   const productCategory: string = await getInput(" nome da categoria: ");
-  let stockQuantity: string = await getInput(" quantidade em estoque: ");
-  let price: string = await getInput(" preço do produto: ");
 
-  let parsedStockQuantity: number = parseInt(stockQuantity);
-  let parsedPrice: number = parseFloat(price);
-
-  while (isNaN(parsedStockQuantity) || parsedStockQuantity < 0) {
-    console.log(
-      " Por favor preencha uma quantidade em estoque maior ou igual a 0."
-    );
-    stockQuantity = await getInput(" quantidade em estoque: ");
+  let parsedStockQuantity: number;
+  do {
+    const stockQuantity: string = await getInput(" quantidade em estoque: ");
     parsedStockQuantity = parseInt(stockQuantity);
-  }
 
-  while (isNaN(parsedPrice) || parsedPrice < 0) {
-    console.log(" Por favor preencha um preçø maior que 0.");
-    price = await getInput("preço do produto: ");
-    parsedStockQuantity = parseInt(price);
-  }
-  console.log("\n");
+    if (isNaN(parsedStockQuantity) || parsedStockQuantity < 0) {
+      console.log(
+        " Por favor preencha uma quantidade em estoque maior ou igual a 0."
+      );
+    }
+  } while (isNaN(parsedStockQuantity) || parsedStockQuantity < 0);
+
+  let parsedPrice: number;
+  do {
+    const price: string = await getInput(" preço do produto: ");
+    parsedPrice = parseFloat(price);
+
+    if (isNaN(parsedPrice) || parsedPrice <= 0) {
+      console.log(" Por favor preencha um preço maior que 0.");
+    }
+  } while (isNaN(parsedPrice) || parsedPrice <= 0);
 
   console.log(`
     Produto adicionado com sucesso! \n
