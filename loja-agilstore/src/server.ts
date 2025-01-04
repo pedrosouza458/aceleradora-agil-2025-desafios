@@ -1,14 +1,17 @@
-#!/user/bin/env node
-import { showMainMenu } from "./functions/show-main-menu";
+import { getInput } from "./functions/utils/get-input-data";
+import { addProducts } from "./functions/products/add-products";
+import { showMainMenu } from "./functions/utils/show-main-menu";
 
-showMainMenu()
+async function main(){
 
-process.stdin.on("data", (data) => {
-  const input = data.toString().trim();
+showMainMenu();
+
+while (true) {
+  const input = await getInput("");
 
   switch (input) {
     case "1":
-      console.log("Adicionar produto");
+      await addProducts(); 
       break;
 
     case "2":
@@ -35,5 +38,7 @@ process.stdin.on("data", (data) => {
       console.log("Opção inválida! Por favor, digite um número de 0 a 5.");
       break;
   }
+};
+}
 
-});
+main();
