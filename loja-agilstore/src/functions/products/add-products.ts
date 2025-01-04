@@ -43,6 +43,7 @@ export async function addProducts() {
   console.log(" Retornando ao menu... \n")
 
   setTimeout(() => {
+    clearTerminal();
     showMainMenu();
   }, 3000);
 }
