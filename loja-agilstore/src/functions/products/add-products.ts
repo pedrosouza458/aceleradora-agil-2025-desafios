@@ -2,16 +2,16 @@ import { randomUUID } from "crypto";
 import { getInput } from "../utils/get-input-data";
 import { showMainMenu } from "../utils/show-main-menu";
 import { clearTerminal } from "../utils/clear-terminal";
-import fs from "fs";
 import path from "path";
 import { UpdateProductsFile } from "../files/update-products-file";
+
 const filePath = path.join(__dirname, "/../../data/products.json");
 
 export async function addProducts() {
   clearTerminal();
   console.log("\n Digite as informações do seu produto \n");
 
-  let productId = randomUUID();
+  const productId = randomUUID();
   const productName: string = await getInput(" nome do produto: ");
   const productCategory: string = await getInput(" nome da categoria: ");
 
@@ -39,7 +39,7 @@ export async function addProducts() {
 
   console.log(`
     Produto adicionado com sucesso! \n
-    ID do produto: ${productId} 
+    Id do produto: ${productId} 
     Nome do Produto: ${productName} 
     Categoria: ${productCategory} 
     Quantidade em estoque: ${parsedStockQuantity} 
