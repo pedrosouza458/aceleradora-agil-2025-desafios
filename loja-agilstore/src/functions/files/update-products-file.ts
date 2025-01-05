@@ -1,17 +1,11 @@
 import path from "path";
 import fs from "fs"
 import { Product } from "../../types/product";
+import { readProductsFile } from "./read-products-file";
 
 export async function UpdateProductsFile(filePath: string, newProduct: Product) {
   try {
-    const dirPath = path.dirname(filePath);
-    await fs.promises.mkdir(dirPath, { recursive: true });
-    let products = [];
-    let data = "";
-    data = await fs.promises.readFile(filePath, "utf8");
-    if (data.trim()) {
-      products = JSON.parse(data);
-    }
+    let products = await readProductsFile(filePath)
     products.push(newProduct);
     await fs.promises.writeFile(filePath, JSON.stringify(products, null, 2));
     console.log("Produto salvo com sucesso no arquivo JSON!");
