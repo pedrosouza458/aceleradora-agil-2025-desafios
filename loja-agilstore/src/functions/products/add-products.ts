@@ -2,9 +2,13 @@ import { randomUUID } from "crypto";
 import { getInput } from "../utils/get-input-data";
 import { showMainMenu } from "../utils/show-main-menu";
 import { clearTerminal } from "../utils/clear-terminal";
+import fs from "fs";
+import path from "path";
+import { UpdateProductsFile } from "../files/update-products-file";
+const filePath = path.join(__dirname, "/../../data/products.json");
 
 export async function addProducts() {
-  clearTerminal()
+  clearTerminal();
   console.log("\n Digite as informações do seu produto \n");
 
   let productId = randomUUID();
@@ -41,8 +45,16 @@ export async function addProducts() {
     Quantidade em estoque: ${parsedStockQuantity} 
     Preço do produto: ${parsedPrice} \n
       `);
-   
-  console.log(" Retornando ao menu... \n")
+
+  const newProduct = {
+    id: productId,
+    name: productName,
+    category: productCategory,
+    quantity: parsedStockQuantity,
+    price: parsedPrice,
+  };
+
+  UpdateProductsFile(filePath, newProduct)
 
   setTimeout(() => {
     clearTerminal();
