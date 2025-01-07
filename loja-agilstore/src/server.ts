@@ -1,5 +1,5 @@
 import { getInput } from "./functions/utils/get-input-data";
-import { addProducts } from "./functions/products/add-products";
+import { addProduct } from "./functions/products/add-product";
 import { showMainMenu } from "./functions/utils/show-main-menu";
 import { listProducts } from "./functions/products/list-products";
 
@@ -11,7 +11,7 @@ async function main() {
 
     switch (input) {
       case "1":
-        await addProducts();
+        await addProduct();
         break;
 
       case "2":
