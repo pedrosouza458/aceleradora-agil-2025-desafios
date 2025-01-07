@@ -4,6 +4,7 @@ import { showMainMenu } from "@/functions/utils/show-main-menu";
 import { listProducts } from "@/functions/products/list-products";
 import { updateProduct } from "@/functions/products/update-product";
 import { deleteProduct } from "./functions/products/delete-product";
+import { searchProducts } from "./functions/products/search-products";
 
 async function main() {
   showMainMenu();
@@ -29,11 +30,11 @@ async function main() {
         break;
 
       case "5":
-        console.log("Buscar Produto");
+        await searchProducts();
         break;
 
       case "0":
-        console.log("Até logo");
+        console.log("Até logo :)");
         process.exit();
 
       default:
