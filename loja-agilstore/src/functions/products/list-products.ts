@@ -22,7 +22,7 @@ export async function listProducts() {
       clearTerminal();
       showMainMenu();
     }, 3000);
-    return; // Prevent further execution
+    return; 
   }
 
   console.log(
