@@ -1,9 +1,9 @@
 import { getInput } from "@/functions/utils/get-input-data";
 import { showMainMenu } from "@/functions/utils/show-main-menu";
 import { clearTerminal } from "@/functions/utils/clear-terminal";
-import { UpdateProductsFile } from "@/functions/files/update-products-file";
 import { readProductsFile } from "@/functions/files/read-products-file";
 import { productsFilePath } from "@/constants";
+import { saveProductsFile } from "@/functions/files/save-products-file";
 
 export async function addProduct() {
   clearTerminal();
@@ -59,7 +59,9 @@ export async function addProduct() {
     price: parsedPrice,
   };
 
-  UpdateProductsFile(productsFilePath, newProduct)
+  products.push(newProduct);
+
+  await saveProductsFile(productsFilePath, products);
 
   setTimeout(() => {
     clearTerminal();
