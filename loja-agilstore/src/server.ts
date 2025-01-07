@@ -3,6 +3,7 @@ import { addProduct } from "@/functions/products/add-product";
 import { showMainMenu } from "@/functions/utils/show-main-menu";
 import { listProducts } from "@/functions/products/list-products";
 import { updateProduct } from "@/functions/products/update-product";
+import { deleteProduct } from "./functions/products/delete-product";
 
 async function main() {
   showMainMenu();
@@ -24,7 +25,7 @@ async function main() {
         break;
 
       case "4":
-        console.log("Excluir Produto");
+        await deleteProduct();
         break;
 
       case "5":
