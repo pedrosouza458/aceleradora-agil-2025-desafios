@@ -50,7 +50,7 @@ export async function updateProduct() {
     }
   }
 
-  let productPrice: string = await getInput("Preço do produto: ");
+  let productPrice: string = await getInput("Preço do produto (use . ao invés de ,): ");
   if (productPrice !== "") {
     const price = parseFloat(productPrice);
     if (!isNaN(price) && price >= 0) {

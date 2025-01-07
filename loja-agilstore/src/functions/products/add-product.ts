@@ -37,7 +37,7 @@ export async function addProduct() {
 
   let parsedPrice: number;
   do {
-    const price: string = await getInput(" preço do produto: ");
+    const price: string = await getInput(" preço do produto (use . ao invés de ,): ");
     parsedPrice = parseFloat(price);
 
     if (isNaN(parsedPrice) || parsedPrice <= 0) {
