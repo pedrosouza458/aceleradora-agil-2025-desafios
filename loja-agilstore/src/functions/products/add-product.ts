@@ -1,17 +1,15 @@
-import { getInput } from "../utils/get-input-data";
-import { showMainMenu } from "../utils/show-main-menu";
-import { clearTerminal } from "../utils/clear-terminal";
-import path from "path";
-import { UpdateProductsFile } from "../files/update-products-file";
-import { readProductsFile } from "../files/read-products-file";
-
-const filePath = path.join(__dirname, "/../../data/products.json");
+import { getInput } from "@/functions/utils/get-input-data";
+import { showMainMenu } from "@/functions/utils/show-main-menu";
+import { clearTerminal } from "@/functions/utils/clear-terminal";
+import { UpdateProductsFile } from "@/functions/files/update-products-file";
+import { readProductsFile } from "@/functions/files/read-products-file";
+import { productsFilePath } from "@/constants";
 
 export async function addProduct() {
   clearTerminal();
   console.log("\n Digite as informações do seu produto \n");
 
-  const products = await readProductsFile(filePath)
+  const products = await readProductsFile(productsFilePath)
   let productsCounter = 1;
   if(products.length > 0){
       productsCounter++
@@ -61,7 +59,7 @@ export async function addProduct() {
     price: parsedPrice,
   };
 
-  UpdateProductsFile(filePath, newProduct)
+  UpdateProductsFile(productsFilePath, newProduct)
 
   setTimeout(() => {
     clearTerminal();
