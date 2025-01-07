@@ -42,15 +42,15 @@ export async function listProducts() {
     case "1":
       category = await getInput(" Escreva o nome da categoria: ");
 
-      const filteredProducts = products.filter((product) =>
+      const productsByCategory = products.filter((product) =>
         product.category.includes(category)
       );
 
-      if (filteredProducts.length > 0) {
+      if (productsByCategory.length > 0) {
         clearTerminal();
         console.log(`Lista de produtos com a categoria contendo ${category}:`);
-        const filteredProductsTable = await formatProductTable(filteredProducts);
-        console.log(table(filteredProductsTable));
+        const productsByCategoryTable = await formatProductTable(productsByCategory);
+        console.log(table(productsByCategoryTable));
       } else {
         console.log("Nenhum produto com essa categoria foi encontrado.");
       }
