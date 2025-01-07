@@ -11,17 +11,18 @@ const filePath = path.join(__dirname, "/../../data/products.json");
 export async function listProducts() {
 
   clearTerminal();
-  console.log(" Lista de todos os produtos:");
   const products = await readProductsFile(filePath);
 
-  if (products) {
+  if (products.length > 0) {
+    console.log(" Lista de todos os produtos:");
     console.table(products);
   } else {
-    console.log("Nenhum produto foi achado, voltando ao menu principal...");
+    console.log(" Nenhum produto foi achado, voltando ao menu principal...");
     setTimeout(() => {
       clearTerminal();
       showMainMenu();
     }, 3000);
+    return; // Prevent further execution
   }
 
   console.log(
