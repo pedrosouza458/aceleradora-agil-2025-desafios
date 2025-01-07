@@ -1,5 +1,5 @@
 import fs from "fs";
-import { Product } from "../../types/product";
+import { Product } from "@/types/product";
 
 export async function readProductsFile(filePath: string): Promise<Product[]> {
   try {

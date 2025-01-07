@@ -2,6 +2,7 @@ import { getInput } from "@/functions/utils/get-input-data";
 import { addProduct } from "@/functions/products/add-product";
 import { showMainMenu } from "@/functions/utils/show-main-menu";
 import { listProducts } from "@/functions/products/list-products";
+import { updateProduct } from "@/functions/products/update-product";
 
 async function main() {
   showMainMenu();
@@ -19,7 +20,7 @@ async function main() {
         break;
 
       case "3":
-        console.log("Atualizar Produto");
+        await updateProduct();
         break;
 
       case "4":
