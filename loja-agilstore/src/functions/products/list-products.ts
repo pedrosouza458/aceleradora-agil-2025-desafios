@@ -22,7 +22,7 @@ export async function listProducts() {
       clearTerminal();
       showMainMenu();
     }, 3000);
-    return; 
+    return;
   }
 
   console.log(
@@ -40,6 +40,7 @@ export async function listProducts() {
 
   switch (input) {
     case "1":
+      clearTerminal();
       category = await getInput(" Escreva o nome da categoria: ");
 
       const productsByCategory = products.filter((product) =>
@@ -49,7 +50,9 @@ export async function listProducts() {
       if (productsByCategory.length > 0) {
         clearTerminal();
         console.log(`Lista de produtos com a categoria contendo ${category}:`);
-        const productsByCategoryTable = await formatProductTable(productsByCategory);
+        const productsByCategoryTable = await formatProductTable(
+          productsByCategory
+        );
         console.log(table(productsByCategoryTable));
       } else {
         console.log("Nenhum produto com essa categoria foi encontrado.");
@@ -88,9 +91,9 @@ export async function listProducts() {
     case "4":
       clearTerminal();
       console.log("Lista de produtos ordenados por preço");
-      const productsByPrice = (products.sort((a, b) => b.price - a.price));
-      const productsByPriceTable = await formatProductTable(productsByPrice)
-      console.log(table(productsByPriceTable))
+      const productsByPrice = products.sort((a, b) => b.price - a.price);
+      const productsByPriceTable = await formatProductTable(productsByPrice);
+      console.log(table(productsByPriceTable));
       console.log("Pressione Enter para voltar ao menu de filtros");
       await clearListProducts();
       break;

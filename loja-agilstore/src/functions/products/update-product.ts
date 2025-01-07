@@ -71,6 +71,7 @@ export async function updateProduct() {
   await saveProductsFile(productsFilePath, products);
 
   console.log("Produto atualizado com sucesso!");
+  console.log("Voltando ao menu principal...")
 
   setTimeout(() => {
     clearTerminal();
