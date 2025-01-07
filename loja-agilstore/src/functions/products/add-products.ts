@@ -1,9 +1,9 @@
-import { randomUUID } from "crypto";
 import { getInput } from "../utils/get-input-data";
 import { showMainMenu } from "../utils/show-main-menu";
 import { clearTerminal } from "../utils/clear-terminal";
 import path from "path";
 import { UpdateProductsFile } from "../files/update-products-file";
+import { readProductsFile } from "../files/read-products-file";
 
 const filePath = path.join(__dirname, "/../../data/products.json");
 
@@ -11,7 +11,14 @@ export async function addProducts() {
   clearTerminal();
   console.log("\n Digite as informações do seu produto \n");
 
-  const productId = randomUUID();
+  const products = await readProductsFile(filePath)
+  let productsCounter = 1;
+  if(products.length > 0){
+      productsCounter++
+  }
+  // using autoincrement instead of UUID to easy update 
+  const productId = productsCounter
+
   const productName: string = await getInput(" nome do produto: ");
   const productCategory: string = await getInput(" nome da categoria: ");
 
