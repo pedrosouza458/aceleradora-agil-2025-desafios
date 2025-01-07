@@ -61,7 +61,7 @@ export async function searchProducts() {
       const name = await getInput(" Escreva o nome ou parte do nome do produto: ");
 
       const productWithName = products.filter((product) =>
-        product.name.includes(name)
+        product.name.toLowerCase().includes(name.toLowerCase())
       );
 
       if (productWithName.length > 0) {

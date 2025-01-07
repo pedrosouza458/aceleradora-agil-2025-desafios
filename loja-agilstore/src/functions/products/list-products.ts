@@ -44,7 +44,7 @@ export async function listProducts() {
       category = await getInput(" Escreva o nome da categoria: ");
 
       const productsByCategory = products.filter((product) =>
-        product.category.includes(category)
+        product.category.toLowerCase().includes(category.toLowerCase())
       );
 
       if (productsByCategory.length > 0) {
