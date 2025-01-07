@@ -1,7 +1,7 @@
-import { getInput } from "./functions/utils/get-input-data";
-import { addProduct } from "./functions/products/add-product";
-import { showMainMenu } from "./functions/utils/show-main-menu";
-import { listProducts } from "./functions/products/list-products";
+import { getInput } from "@/functions/utils/get-input-data";
+import { addProduct } from "@/functions/products/add-product";
+import { showMainMenu } from "@/functions/utils/show-main-menu";
+import { listProducts } from "@/functions/products/list-products";
 
 async function main() {
   showMainMenu();
@@ -15,7 +15,7 @@ async function main() {
         break;
 
       case "2":
-        await listProducts()
+        await listProducts();
         break;
 
       case "3":

@@ -1,21 +1,21 @@
-import path from "path";
-import { readProductsFile } from "../files/read-products-file";
-import { clearTerminal } from "../utils/clear-terminal";
-import { getInput } from "../utils/get-input-data";
-import { showMainMenu } from "../utils/show-main-menu";
-import { Product } from "../../types/product";
-import { clearListProducts } from "./utils/clear-list-products";
-
-const filePath = path.join(__dirname, "/../../data/products.json");
+import { readProductsFile } from "@/functions/files/read-products-file";
+import { clearTerminal } from "@/functions/utils/clear-terminal";
+import { getInput } from "@/functions/utils/get-input-data";
+import { showMainMenu } from "@/functions/utils/show-main-menu";
+import { clearListProducts } from "@/functions/products/utils/clear-list-products";
+import { productsFilePath } from "@/constants";
+import { formatProductTable } from "@/functions/products/utils/format-product-table";
+import { table } from "table";
 
 export async function listProducts() {
-
   clearTerminal();
-  const products = await readProductsFile(filePath);
+  const products = await readProductsFile(productsFilePath);
 
   if (products.length > 0) {
+    const productsTable = await formatProductTable(products);
     console.log(" Lista de todos os produtos:");
-    console.table(products);
+
+    console.log(table(productsTable));
   } else {
     console.log(" Nenhum produto foi achado, voltando ao menu principal...");
     setTimeout(() => {
@@ -48,8 +48,9 @@ export async function listProducts() {
 
       if (filteredProducts.length > 0) {
         clearTerminal();
-        console.log(`Lista de produtos com a categoria contendo ${category}:`)
-        console.table(filteredProducts);
+        console.log(`Lista de produtos com a categoria contendo ${category}:`);
+        const filteredProductsTable = await formatProductTable(filteredProducts);
+        console.log(table(filteredProductsTable));
       } else {
         console.log("Nenhum produto com essa categoria foi encontrado.");
       }
@@ -60,24 +61,36 @@ export async function listProducts() {
 
     case "2":
       clearTerminal();
-      console.log("Lista de produtos ordenados por nome")
-      console.table(products.sort((a, b) => a.name.localeCompare(b.name)));
+      console.log("Lista de produtos ordenados por nome");
+      const productsByName = products.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      const productsByNameTable = await formatProductTable(productsByName);
+      console.log(table(productsByNameTable));
       console.log("Pressione Enter para voltar ao menu de filtros");
       await clearListProducts();
       break;
 
     case "3":
       clearTerminal();
-      console.log("Lista de produtos ordenados por quantidade")
-      console.table(products.sort((a, b) => b.quantity - a.quantity));
+      console.log("Lista de produtos ordenados por quantidade");
+      const productsByQuantity = products.sort(
+        (a, b) => b.quantity - a.quantity
+      );
+      const productsByQuantityTable = await formatProductTable(
+        productsByQuantity
+      );
+      console.log(table(productsByQuantityTable));
       console.log("Pressione Enter para voltar ao menu de filtros");
       await clearListProducts();
       break;
 
     case "4":
       clearTerminal();
-      console.log("Lista de produtos ordenados por preç]")
-      console.table(products.sort((a, b) => b.price - a.price));
+      console.log("Lista de produtos ordenados por preço");
+      const productsByPrice = (products.sort((a, b) => b.price - a.price));
+      const productsByPriceTable = await formatProductTable(productsByPrice)
+      console.log(table(productsByPriceTable))
       console.log("Pressione Enter para voltar ao menu de filtros");
       await clearListProducts();
       break;
@@ -86,7 +99,7 @@ export async function listProducts() {
       clearTerminal();
       showMainMenu();
       break;
-      
+
     default:
       console.log("Opção inválida! Por favor, digite um número de 0 a 1.");
       await listProducts();
