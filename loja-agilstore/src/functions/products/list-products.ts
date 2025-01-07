@@ -101,7 +101,7 @@ export async function listProducts() {
       break;
 
     default:
-      console.log("Opção inválida! Por favor, digite um número de 0 a 1.");
+      console.log("Opção inválida! Por favor, digite um número de 0 a 4.");
       await listProducts();
       break;
   }
