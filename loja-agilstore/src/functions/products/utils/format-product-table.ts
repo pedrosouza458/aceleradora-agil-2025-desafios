@@ -10,7 +10,7 @@ export async function formatProductTable(
       product.name,
       product.category,
       product.quantity,
-      product.price,
+      product.price.toFixed(2),
     ]), 
   ];
   return tableData;

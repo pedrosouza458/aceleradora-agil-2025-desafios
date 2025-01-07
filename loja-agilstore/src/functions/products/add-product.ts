@@ -55,7 +55,7 @@ export async function addProduct() {
     Nome do Produto: ${productName} 
     Categoria: ${productCategory} 
     Quantidade em estoque: ${parsedStockQuantity} 
-    Preço do produto: ${parsedPrice} \n
+    Preço do produto: ${parsedPrice.toFixed(2)} \n
       `);
 
   const newProduct = {
