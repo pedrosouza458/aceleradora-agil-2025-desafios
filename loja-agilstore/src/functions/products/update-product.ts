@@ -21,7 +21,7 @@ export async function updateProduct() {
   }
 
   const currentProduct = products[productIndex];
-  console.log("Produto encontrado:", currentProduct);
+  console.log("Produto encontrado");
 
   console.log("Atualize as informações do produto. Deixe em branco os campos que não deseja alterar.");
 

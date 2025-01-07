@@ -40,7 +40,6 @@ export async function listProducts() {
 
   switch (input) {
     case "1":
-      clearTerminal();
       category = await getInput(" Escreva o nome da categoria: ");
 
       const productsByCategory = products.filter((product) =>
@@ -48,7 +47,6 @@ export async function listProducts() {
       );
 
       if (productsByCategory.length > 0) {
-        clearTerminal();
         console.log(`Lista de produtos com a categoria contendo ${category}:`);
         const productsByCategoryTable = await formatProductTable(
           productsByCategory
