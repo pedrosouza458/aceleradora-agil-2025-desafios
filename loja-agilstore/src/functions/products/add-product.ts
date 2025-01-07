@@ -9,13 +9,16 @@ export async function addProduct() {
   clearTerminal();
   console.log("\n Digite as informações do seu produto \n");
 
-  const products = await readProductsFile(productsFilePath)
+  const products = await readProductsFile(productsFilePath);
   let productsCounter = 1;
-  if(products.length > 0){
-      productsCounter++
+  if (products.length > 0) {
+    productsCounter++;
   }
-  // using autoincrement instead of UUID to easy update 
-  const productId = productsCounter
+  // using autoincrement instead of UUID to easy update
+  const productId =
+    products.length > 0
+      ? Math.max(...products.map((product) => product.id)) + 1
+      : 1;
 
   const productName: string = await getInput(" nome do produto: ");
   const productCategory: string = await getInput(" nome da categoria: ");
