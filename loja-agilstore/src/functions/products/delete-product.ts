@@ -20,15 +20,14 @@ export async function deleteProduct() {
     return;
   }
 
-  const currentProduct = products[productIndex];
-  console.log("Produto encontrado:", currentProduct);
+  console.log("Produto encontrado");
 
   const confirmDeletion = await getInput(
     `Tem certeza de que deseja deletar o produto com ID ${productId}? (sim/não): `
   );
 
   if (confirmDeletion.toLowerCase() !== "sim") {
-    console.log("Operação de exclusão cancelada.");
+    console.log("Exclusão cancelada.");
     return;
   }
 
@@ -37,6 +36,7 @@ export async function deleteProduct() {
   await saveProductsFile(productsFilePath, products);
 
   console.log(`Produto com ID ${productId} foi deletado com sucesso!`);
+  console.log(`Voltando ao menu principal...`);
 
   setTimeout(() => {
     clearTerminal();
