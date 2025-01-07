@@ -37,13 +37,17 @@ export async function addProduct() {
 
   let parsedPrice: number;
   do {
-    const price: string = await getInput(" preço do produto (use . ao invés de ,): ");
+    const price: string = await getInput(
+      " preço do produto (use . ao invés de ,): "
+    );
     parsedPrice = parseFloat(price);
 
     if (isNaN(parsedPrice) || parsedPrice <= 0) {
       console.log(" Por favor preencha um preço maior que 0.");
     }
   } while (isNaN(parsedPrice) || parsedPrice <= 0);
+
+  parsedPrice = parseFloat(parsedPrice.toFixed(2));
 
   console.log(`
     Produto adicionado com sucesso! \n
