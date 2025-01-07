@@ -4,12 +4,14 @@ import { clearTerminal } from "../utils/clear-terminal";
 import { getInput } from "../utils/get-input-data";
 import { showMainMenu } from "../utils/show-main-menu";
 import { Product } from "../../types/product";
+import { clearListProducts } from "./utils/clear-list-products";
 
 const filePath = path.join(__dirname, "/../../data/products.json");
 
 export async function listProducts() {
+
   clearTerminal();
-  console.log(" Lista de produtos:");
+  console.log(" Lista de todos os produtos:");
   const products = await readProductsFile(filePath);
 
   if (products) {
@@ -31,6 +33,7 @@ export async function listProducts() {
       - 0 para voltar ao menu prinicpal \n 
       `
   );
+
   const input = await getInput();
   let category: string;
 
@@ -43,44 +46,46 @@ export async function listProducts() {
       );
 
       if (filteredProducts.length > 0) {
+        clearTerminal();
+        console.log(`Lista de produtos com a categoria contendo ${category}:`)
         console.table(filteredProducts);
       } else {
         console.log("Nenhum produto com essa categoria foi encontrado.");
       }
 
       console.log("Pressione Enter para voltar ao menu de filtros");
-      await getInput();
-      clearTerminal();
-      await listProducts();
+      await clearListProducts();
       break;
 
     case "2":
+      clearTerminal();
+      console.log("Lista de produtos ordenados por nome")
       console.table(products.sort((a, b) => a.name.localeCompare(b.name)));
       console.log("Pressione Enter para voltar ao menu de filtros");
-      await getInput();
-      clearTerminal();
-      await listProducts();
+      await clearListProducts();
       break;
 
     case "3":
+      clearTerminal();
+      console.log("Lista de produtos ordenados por quantidade")
       console.table(products.sort((a, b) => b.quantity - a.quantity));
       console.log("Pressione Enter para voltar ao menu de filtros");
-      await getInput();
-      clearTerminal();
-      await listProducts();
+      await clearListProducts();
       break;
 
     case "4":
+      clearTerminal();
+      console.log("Lista de produtos ordenados por preç]")
       console.table(products.sort((a, b) => b.price - a.price));
       console.log("Pressione Enter para voltar ao menu de filtros");
-      await getInput();
-      clearTerminal();
-      await listProducts();
+      await clearListProducts();
       break;
 
     case "0":
       clearTerminal();
       showMainMenu();
+      break;
+      
     default:
       console.log("Opção inválida! Por favor, digite um número de 0 a 1.");
       await listProducts();
