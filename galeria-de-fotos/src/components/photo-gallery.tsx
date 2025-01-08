@@ -38,7 +38,7 @@ export function PhotoGallery({ query, page }: PhotoGalleryProps) {
   }, [query, page]);
   
   return (
-    <div>
+    <div className="py-5">
       {isLoading === true && <Spinner />}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {data && data.length > 0 ? (
