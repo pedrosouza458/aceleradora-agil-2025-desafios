@@ -1,10 +1,13 @@
+import { Header } from "./components/header";
+import { PhotoGallery } from "./components/photo-gallery";
+
 function App() {
- 
   return (
-    <div className="text-center">
-     <h1>Loja Agilstore</h1>
-    </div>
-  )
+    <>
+      <Header />
+      <PhotoGallery />
+    </>
+  );
 }
 
-export default App
+export default App;
