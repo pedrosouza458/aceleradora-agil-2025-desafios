@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="text-center text-xs md:text-base lg:text-base left-0 bottom-0 py-3">
+    <footer className="fixed bottom-0 left-0 w-full text-center md:text-sm lg:text-sm text-xs py-2 bg-white z-50">
       © 2024 Galeria de Fotos. Todos os direitos reservados. Feito com ❤️.
     </footer>
   );
