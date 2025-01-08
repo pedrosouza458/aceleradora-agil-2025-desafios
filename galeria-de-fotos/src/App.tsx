@@ -1,11 +1,11 @@
-import { Header } from "./components/header";
-import { PhotoGallery } from "./components/photo-gallery";
+import { Footer } from "./components/footer";
+import { PhotoGalleryPage } from "./pages/photo-galery-page";
 
 function App() {
   return (
     <>
-      <Header />
-      <PhotoGallery />
+      <PhotoGalleryPage />
+      <Footer />
     </>
   );
 }
