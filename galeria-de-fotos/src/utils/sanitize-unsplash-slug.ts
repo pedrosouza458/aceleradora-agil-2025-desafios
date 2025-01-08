@@ -12,5 +12,5 @@ export function sanitizeUnsplashSlug(slug: string): string {
     })
     .join(' ');
 
-  return sanitized;
+  return sanitized + '.';
 }
