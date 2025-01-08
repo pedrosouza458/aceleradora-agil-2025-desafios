@@ -35,7 +35,7 @@ export function Photo({
         <div className="flex items-center">{likes} ❤️</div>
       </div>
 
-      <h1 className="text-left font-normal text-lg">
+      <h1 className="text-left font-normal text-base">
         {sanitizeUnsplashSlug(name)}
       </h1>
     </div>
