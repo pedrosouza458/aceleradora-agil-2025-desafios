@@ -9,7 +9,9 @@ export type UnsplashPicture = {
   urls: {
     regular: string,
   },
-  download: string,
+  links: {
+    download: string,
+  } 
   likes: number,
   user: {
     username: string,
