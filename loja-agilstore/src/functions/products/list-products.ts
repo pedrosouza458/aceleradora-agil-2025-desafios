@@ -51,6 +51,7 @@ export async function listProducts() {
         const productsByCategoryTable = await formatProductTable(
           productsByCategory
         );
+        clearTerminal();
         console.log(table(productsByCategoryTable));
       } else {
         console.log("Nenhum produto com essa categoria foi encontrado.");
