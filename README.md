@@ -10,6 +10,7 @@ Aqui estão listadas as principais tecnologias utilizadas em cada projeto.
 - **npm**: gerenciador de pacotes do Node.
 - **@types/node**: tipagem das bibliotecas nativas do Node.
 - **tsx**: biblioteca para rodar Typescript no Node.
+- **table**: biblioteca para gerar tabelas.
 - **git**: controle de versão e disponibilização do código.
 
 ##  Galeria de Fotos
