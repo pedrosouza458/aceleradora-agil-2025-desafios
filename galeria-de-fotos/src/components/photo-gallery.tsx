@@ -54,7 +54,7 @@ export function PhotoGallery({ query, page }: PhotoGalleryProps) {
           ))
         ) : (
           <div className="col-span-full flex justify-center items-center h-96">
-            <p className="text-center">Nenhum produto foi encontrado.</p>
+            <p className="text-center">Nenhum produto foi encontrado na api.</p>
           </div>
         )}
       </div>
