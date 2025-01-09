@@ -13,11 +13,6 @@ export function SearchBar({ query, setQuery }: SearchBarProps) {
     setQuery(inputValue);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    setQuery(e.target.value); // Update the query in real-time as user types
-  };
-
   return (
     <div className="flex flex-row gap-2 items-center justify-center pt-1 pb-6">
       <input
@@ -25,12 +20,11 @@ export function SearchBar({ query, setQuery }: SearchBarProps) {
         type="text"
         name="query"
         placeholder="Digite algo"
-        value={inputValue} // Keep the input value controlled
-        onChange={handleInputChange} // Update input value and query in real-time
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <button
         className="flex justify-center items-center gap-2 bg-slate-900 rounded-lg text-white w-32 py-1"
-        onClick={handleSearch} // Search manually when the button is clicked
+        onClick={handleSearch}
       >
         <MagnifyingGlass weight="bold" />
         <p>Buscar</p>
