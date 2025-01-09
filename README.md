@@ -57,7 +57,7 @@ Rode a aplicação
 npm run dev
 ```
 ### Informações Adicionais
-- O projeto Loja Agilstore já possui um JSON com um conjunto de produtos pronto para testar junto com a criação de novos produtos. O arquivo está localizado na pasta **src/data/products.json**.
+- O projeto Loja Agilstore já possui um JSON com um conjunto de produtos pronto para testar junto com a criação de novos produtos. O arquivo está localizado na pasta **src/data/products.json**. Os dados padrão também pode ser atualizados e deletados.
 
 ## Como rodar Galeria de Fotos
 Navegue para a pasta do projeto:
@@ -77,5 +77,6 @@ Rode a aplicação
 npm run dev
 ```
 ## Informações Adicionais
+- O termo padrão de pesquisa quando o projeto é aberto é "beautiful nature", sinta-se a vontade para pesquisar o que quiser.
 - A api do Unsplash possui um limite de 50 requisições por hora.
 
