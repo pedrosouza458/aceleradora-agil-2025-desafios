@@ -50,7 +50,7 @@ export async function searchProducts() {
         const productWithIdTable = await formatProductTable(productWithId);
         console.log(table(productWithIdTable));
       } else {
-        console.log("Nenhum produto com esse id foi encontrado.");
+        console.log("Nenhum produto com esse ID foi encontrado.");
       }
 
       console.log("Pressione Enter para voltar ao menu de busca");
@@ -70,7 +70,7 @@ export async function searchProducts() {
         const productsWithNameTable = await formatProductTable(productWithName);
         console.log(table(productsWithNameTable));
       } else {
-        console.log("Nenhum produto com esse nome foi encontrado.");
+        console.log("Nenhum produto com esse ID foi encontrado.");
       }
 
       console.log("Pressione Enter para voltar ao menu de busca");
