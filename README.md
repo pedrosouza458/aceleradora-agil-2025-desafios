@@ -1,8 +1,8 @@
 ## Desafios Aceleradora Ágil 2025
-Resolução dos desafios da 2ª fase do processo seletivo, esse repositório contém os dois projetos da etapa, Loja Agilstore e Galera de Fotos.
+Resolução dos desafios da 2ª fase do processo seletivo, esse repositório contém os dois projetos da etapa: Loja Agilstore e Galera de Fotos.
 
 ## Tecnologias Utilizadas
-Aqui estão listadas as principais tecnologias utilizadas em cada um dos projetos.
+Aqui estão listadas as principais tecnologias utilizadas em cada projeto.
 ##  Loja Agilstore
 
 - **Typescript**: linguagem para tipagem do código, facilitando o desenvolvimento.
