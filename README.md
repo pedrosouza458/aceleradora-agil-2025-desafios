@@ -72,7 +72,7 @@ Instale as dependências com npm:
 ```bash
 npm i
 ```
-Rode a aplicação
+Rode a aplicação e acesse a porta http://localhost:5173
 ```bash
 npm run dev
 ```
